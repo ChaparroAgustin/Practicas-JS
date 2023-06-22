@@ -112,12 +112,65 @@ document.getElementById("boton").addEventListener('click', function(){
 
 var form = document.getElementById("formAgregar");
 var lista = document.getElementById("items");
+var filtro = document.getElementById('filtro');
 
 
-form.addEventListener('submit', agregarItem)
+form.addEventListener('submit', agregarItem)//ESCUCHA CUANDO SE HACE CLICK EN SUBMIT
+
+lista.addEventListener('click',eliminarItem)//ESCUCHA CUANDO SE HACE CLICK EN ELIMINAR
+
+filtro.addEventListener('keyup',filtrarItems)//FILTRAR CUANDO SE HACE UN CAMBIO EN EL CAMPO BUSCAR
 
 function agregarItem(e){
     e.preventDefault();
+    //capta informacion ingresada en el input del html
     var nuevoItem = document.getElementById("item").value;
-    console.log(nuevoItem)
+
+    //creacion del elemento li y asignacion de la clase
+    var li = document.createElement('li');
+    li.className = 'list-group-item';
+    li.appendChild(document.createTextNode(nuevoItem));
+
+    //creacion del boton eliminar y asignacion de clase 
+    var button = document.createElement('button');
+    button.className = 'btn btn-danger btn-sm float-right ELIMINAR';
+    button.appendChild(document.createTextNode('x'));
+
+    //asignacion del bonton eliminar al li creado anteriormente.
+    li.appendChild(button);
+
+    lista.appendChild(li);
+    
+    //deja en blando el input para un nuevo ingreso de informacion para la creacion de otro item.
+    document.getElementById('item').value = '';
+}
+
+///EVENTO DE ELIMINACION DE ITEMS 
+
+function eliminarItem(e){
+    if(e.target.classList.contains('ELIMINAR')){
+        if(confirm('Seguro que desea eliminar de la lista?')){
+            var li = e.target.parentElement;
+            lista.removeChild(li);
+        }
+    }
+}
+
+//Busqueda de elementos
+
+function filtrarItems(e){
+    var texto = e.target.value.toLowerCase();//filtra
+    var items = lista.getElementsByTagName('li');//captura etiquetas li
+
+    Array.from(items).forEach(function(item){
+        var itemNombre = item.firstChild.textContent;
+        console.log(itemNombre.toLowerCase().indexOf(texto));
+        if(itemNombre.toLowerCase().indexOf(texto) != -1){
+            item.style.display = 'block';
+            
+        }
+        else{
+            item.style.display = 'none';
+        }
+    });
 }
