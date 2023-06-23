@@ -159,10 +159,10 @@ datos.set('edad', 30)
 datos.set(1, 'agustin@hotmail.com')
 datos.set('movil',1122334455)
 console.log(datos.get('nombre'));
-console.log(datos.get(1))
-datos.delete('movil')
-console.log(datos.size)
-console.log(datos.get('movil'))
-
+console.log(datos.get(1));
+datos.delete('movil');
+console.log(datos.size);
+console.log(datos.get('movil'));
+console.log('hola')
 
 
