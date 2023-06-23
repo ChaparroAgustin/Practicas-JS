@@ -152,17 +152,40 @@
 
 ////Mapas//// Maneja valores y claves
 
-const datos = new Map();
+// const datos = new Map();
 
-datos.set('nombre','Agustin');
-datos.set('edad', 30)
-datos.set(1, 'agustin@hotmail.com')
-datos.set('movil',1122334455)
-console.log(datos.get('nombre'));
-console.log(datos.get(1));
-datos.delete('movil');
-console.log(datos.size);
-console.log(datos.get('movil'));
-console.log('hola')
+// datos.set('nombre','Agustin');
+// datos.set('edad', 30)
+// datos.set(1, 'agustin@hotmail.com')
+// datos.set('movil',1122334455)
+// // console.log(datos.get('nombre'));
+// // console.log(datos.get(1));
+// // datos.delete('movil');
+// // console.log(datos.size);
+// // console.log(datos.get('movil'));
+// //datos.clear();
+
+// datos.forEach((value,key) => {
+//     console.log(`${key} : ${value}`);
+// })
+
+//-------------------------o--------------------
+
+//Spread Operator
+
+var sumar = function(a,b,c,d){
+    return a + b + c + d;
+}
+
+var ope1 = sumar(1,2,3,4);
+var valores = [1,2,3,4];
+const ope2 = sumar(...valores)//aca se ve el operador spread que son los tres puntitos ... 
+console.log(ope2);
+
+const rrhh = ['pedro','carlos'];
+const contabilidad = ['felipe','pablo','anna','maria'];
+
+const empresa = [...rrhh, ...contabilidad];
+console.log(empresa);
 
 
