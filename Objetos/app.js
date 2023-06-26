@@ -57,6 +57,54 @@
 
 //-----------------------------------o----------------------------------
 
-//REFERENCIA DE OBJETOS
+// //REFERENCIA DE OBJETOS
+// let persona = {
+//     nombre: "pablo",
+//     edad : 30,
+//     sueldo: 1200
+// }
+
+// let otraPersona = persona;
+// otraPersona.sueldo = 1500;
+// console.log(otraPersona);
+// let cambiarSueldo = (p,monto) =>{
+//     p.sueldo += monto;
+//     //console.log(p);
+// }
+
+// cambiarSueldo(persona,500);
+// console.log(otraPersona);//javascript usa los objetos como referencias por ende
+//                          // al cambiar a otraPersona, cambia persona y viceversa
+
+// console.log(persona); //la funciona cambia tambien los valores del objeto persona previamente declarado
+
+// --------------------------------------0---------------------------------------------------
+
+//////Metodos/////////
+
+
+let persona = {
+    nombre: "Pedro",
+    edad: 30,
+    sueldo: 1500,
+    cambiarSueldo: function(monto){
+        this.sueldo += monto;
+    },
+    cambiarEdad: function(edad){
+        this.edad += edad;
+    }
+};
+
+console.log(persona);
+persona.cambiarSueldo(500);
+persona.cambiarEdad(3);
+console.log(persona);
+
+
+//---------------------------------------o------------------------------------
+
+
+///
+
 
 
