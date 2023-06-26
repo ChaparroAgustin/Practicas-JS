@@ -83,28 +83,95 @@
 //////Metodos/////////
 
 
-let persona = {
-    nombre: "Pedro",
-    edad: 30,
-    sueldo: 1500,
-    cambiarSueldo: function(monto){
-        this.sueldo += monto;
-    },
-    cambiarEdad: function(edad){
-        this.edad += edad;
-    }
-};
+// let persona = {
+//     nombre: "Pedro",
+//     edad: 30,
+//     sueldo: 1500,
+//     cambiarSueldo: function(monto){
+//         this.sueldo += monto;
+//     },
+//     cambiarEdad: function(edad){
+//         this.edad += edad;
+//     }
+// };
 
-console.log(persona);
-persona.cambiarSueldo(500);
-persona.cambiarEdad(3);
-console.log(persona);
+// console.log(persona);
+// persona.cambiarSueldo(500);
+// persona.cambiarEdad(3);
+// console.log(persona);
 
 
 //---------------------------------------o------------------------------------
 
 
-///
+// ///Objeto String/////
+
+// let nombre = '       Chaparro Agustin          ';
+// let clave = '12309clave567.e';
+
+// console.log(nombre.length);
+// console.log(nombre);
+// console.log(nombre.trim());//Elimina espacios delante y atras del string
+// console.log(nombre.toUpperCase());
+// console.log(nombre.toLowerCase());
+// console.log(clave.includes('clave', 7));//se indica que inicie desde la posicion numero 7, por lo que no encuentra coincidencia.
+// console.log(clave.includes('clave', 5));//se indica que inicie desde la posicion numero 5
+// console.log(clave.indexOf('clave'));
+
+//-------------------------------------------------o--------------------------------------
+
+// ////Destructuracion de objetos////
+// const getPersonas = () =>{
+
+//     const respuesta = [
+//             {
+//             codigo:200,
+//             data : {
+//                 persona:{
+//                     nombre: "Agustin",
+//                     direccion: {
+//                         ciudad:"buenos aires",
+//                         pais: "Argentina"
+//                     }
+//                 }
+//             }
+//         },
+//         {
+//             codigo:300,
+//             data : {
+//                 persona:{
+//                     nombre: "Pedro",
+//                     direccion: {
+//                         ciudad:"Mendoza",
+//                         pais: "Argentina"
+//                     }
+//                 }
+//             }
+//         },
+//         {
+//             codigo:400,
+//             data : {
+//                 persona:{
+//                     nombre: "Juan",
+//                     direccion: {
+//                         ciudad:"Salta",
+//                         pais: "Argentina"
+//                     }
+//                 }
+//             }
+//         }
+//     ]
+//     return respuesta;
+// }
+
+// //let { codigo: c, data :{persona:{nombre: n}} } = respuesta;//Destructuracion, obtengo el codigo de respuesta. c y n son alias que les doy.
+// let { codigo: c, data :{persona:{nombre: n}} } = getPersonas()[0];
+
+// for (const {codigo:c, data:{persona:{nombre:n}}} of getPersonas()){
+//     console.log(c,n)
+// }
+
+
 
 
 
