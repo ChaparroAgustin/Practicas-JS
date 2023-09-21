@@ -31,7 +31,7 @@ class UI{// tiene metodos estaticos para poder usarlos de forma directo sin tene
         const form = document.querySelector('#libro-form');
         container.insertBefore(div, form);
 
-        setTimeout(()=> document.querySelector('.alert').remove(), 3000);
+        //setTimeout(()=> document.querySelector('.alert').remove(), 3000);
     }
 
     static limpiarCampos(){
