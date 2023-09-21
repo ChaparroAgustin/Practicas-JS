@@ -29,3 +29,8 @@ console.log(usuarioJSON);
 const usuario2 = JSON.parse(usuarioJSON);//con parse, el string de json vuelve a ser objeto.
 
 console.log(usuario2);
+console.log(`${usuario2.nombre}: ${usuario2.edad}`);
+
+//----------------------------------------------o--------------------------------------------------
+
+
