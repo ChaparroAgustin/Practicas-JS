@@ -43,4 +43,20 @@ console.log(timeStamp.toString());
 const fechaActual = new Date(timeStamp);
 console.log(fechaActual.getFullYear());
 
+//Comparacion de fechas
 
+const fechaDos = new Date('10 01 1991 00:20:00');
+const fechaUno = new Date('09 01 1991 00:20:00');
+
+const timeStampFechaUno = fechaUno.getTime();
+const timeStampFechaDos = fechaDos.getTime();
+
+if(timeStampFechaDos > timeStampFechaUno){
+    console.log(fechaDos.toString());
+}
+else if(timeStampFechaDos < timeStampFechaUno){
+    console.log(fechaUno.toString());
+}
+else{
+    console.log("son la misma fecha")
+}
