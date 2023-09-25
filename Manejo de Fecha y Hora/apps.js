@@ -1,4 +1,4 @@
-//Manejo de fecha y hora
+// Manejo de fecha y hora
 // Unix Epoch - 01 Enero 1970 00:00:00
 const ahora = new Date();
 
@@ -60,3 +60,4 @@ else if(timeStampFechaDos < timeStampFechaUno){
 else{
     console.log("son la misma fecha")
 }
+
