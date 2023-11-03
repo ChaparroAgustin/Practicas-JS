@@ -6,8 +6,7 @@
 
 // setTimeout(() => {
 //     console.log("esto sucede luego de 4 segundos ")
-// }, 4000);//esta funcion funciona como callback 
-
+// }, 4000);//esta funcion funciona como callback
 
 // const segundo = () =>{
 //     setTimeout(() => {
@@ -22,7 +21,6 @@
 // }
 
 // primero();
-
 
 //--------------------------0---------------------------
 
@@ -41,18 +39,14 @@
 //                 const permiso = ['admin', 'creador'];
 //                 console.log(`${id} - ${usuario.email} - ${usuario.nombre} - Permisos: ${permiso}`);
 
-
 //             }, 1500,usersId[2]);
 //         }, 1500, usersId[2]);
 //     }, 1500);
 // }
-// //cuando las funciones se hacen asi escalonadas, se complica para mantenerla, por lo que se usan las 
+// //cuando las funciones se hacen asi escalonadas, se complica para mantenerla, por lo que se usan las
 // //llamadas funciones promesas.
 
 // getUsuario();
-
-
-
 
 //----------------------------------0----------------------------------
 // Ejemplo del uso de promesas
@@ -72,7 +66,7 @@
 //     console.log('Error: ' + error);
 // })
 
-// //Ejemplo 2 
+// //Ejemplo 2
 
 // var miPromesa = Promise.resolve('Comida');
 // miPromesa.then(resp => console.log(resp));
@@ -85,7 +79,6 @@
 //     }, 2000);
 // })
 
-
 // miPromesa2.then (resp =>{
 //     resp += 5;
 //     console.log(resp);
@@ -95,31 +88,39 @@
 // de CallBacks a Promesas
 
 const getUsuariosIDs = new Promise((response, reject) => {
-    setTimeout(() => {
-        response([101,105,103,115]);
-    }, 1500);
+  setTimeout(() => {
+    response([101, 105, 103, 115]);
+  }, 1500);
 });
 
-const getUsuario = userid => {
-    return new Promise((resolve,reject) => {
-        setTimeout((id) => {
-            const usuario ={
-                email:'agustin@gmail.com',
-                nombre:'Agustin'
-            }
-            resolve(`${id} - ${usuario.email} - ${usuario.nombre}`)
-        }, 1500,userid);
-    })
+const getUsuario = (userid) => {
+  return new Promise((resolve, reject) => {
+    setTimeout(
+      (id) => {
+        const usuario = {
+          email: "agustin@gmail.com",
+          nombre: "Agustin",
+        };
+        resolve(`${id} - ${usuario.email} - ${usuario.nombre}`);
+      },
+      1500,
+      userid
+    );
+  });
 };
 
-const getPermisos = id =>{
-    return new Promise((resolve,reject) => {
-        setTimeout((id) => {
-            const permiso = ['administrador']
-            resolve(permiso);
-        }, 1500, id);
-    });
-}
+const getPermisos = (id) => {
+  return new Promise((resolve, reject) => {
+    setTimeout(
+      (id) => {
+        const permiso = ["administrador"];
+        resolve(permiso);
+      },
+      1500,
+      id
+    );
+  });
+};
 
 // getUsuariosIDs
 // .then(IDs => {
@@ -137,19 +138,18 @@ const getPermisos = id =>{
 //     console.log('Error')
 // });
 
+//desync, await
+//permiten consumir promesas de formas mas sensillas
 
-//desync, await 
-//permiten consumir promesas de formas mas sensillas 
-
-async function getUsuariosAW(){
-    const IDs = await getUsuariosIDs;
-    console.log(IDs);
-    const usuario = await getUsuario(IDs[3]);
-    console.log(usuario);
-    const permisos = await getPermisos(usuario.id);
-    console.log(permisos)
+async function getUsuariosAW() {
+  const IDs = await getUsuariosIDs;
+  console.log(IDs);
+  const usuario = await getUsuario(IDs[3]);
+  console.log(usuario);
+  const permisos = await getPermisos(usuario.id);
+  console.log(permisos);
+  return usuario;
 }
 //La funcion async consume las promesas de forma mas ordenada
 // la funciona await solo se puede utilizar dentro de una funcion async
-getUsuariosAW();
-
+getUsuariosAW().then((resultado) => console.log(`${resultado} es un usuario`));
