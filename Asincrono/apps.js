@@ -152,4 +152,17 @@ async function getUsuariosAW() {
 }
 //La funcion async consume las promesas de forma mas ordenada
 // la funciona await solo se puede utilizar dentro de una funcion async
-getUsuariosAW().then((resultado) => console.log(`${resultado} es un usuario`));
+//getUsuariosAW().then((resultado) => console.log(`${resultado} es un usuario`));
+
+//Ejemplo de una llamada AJAX con HTML Request
+
+const request = new XMLHttpRequest();
+request.addEventListener("readystatechange", (e) => {
+  if (e.target.readyState === 4) {
+    const datos = JSON.parse(e.target.responseText);
+    console.log(datos);
+  }
+});
+
+request.open("get", "https://jsonplaceholder.typicode.com/users");
+request.send();
